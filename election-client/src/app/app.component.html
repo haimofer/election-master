@@ -1,0 +1,37 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="wrapper" style="text-align:center">
+    <h1>
+        Welcome to {{name}} campaign!
+    </h1>
+    <div id="vote">
+            <div style="display:inline;">
+                <label>User ID </label>
+                <input type="number" placeholder="a num between 1 to 1000" id="userId"/>
+            </div>
+        <div style="display:inline-block;">
+                <label>Password </label>
+                <input type="password" placeholder="any pass will do" id="pass" autocomplete="off"/>
+            </div>
+
+        <h3>
+            Enter/update your vote
+        </h3>
+        <input #currentVote class="inputNumber" type="number" id="currentVote" min="1" max="1000">
+        <br>
+        <button class="button" (click)="upsertVote()">Send</button>
+
+
+    </div>
+    <div id="chart">
+        <canvas baseChart
+                [datasets]="barChartData"
+                [labels]="barChartLabels"
+                [options]="barChartOptions"
+                [legend]="barChartLegend"
+                [chartType]="barChartType"
+                [colors]="barChartColors"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></canvas>
+        <button class="button" (click)="refreshData()">Refresh Data</button>
+    </div>
+</div>
